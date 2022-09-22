@@ -34,8 +34,8 @@ public class BusinessController extends BaseController<Business> {
     protected ResponseEntity<Business> deleteBusiness(@PathVariable("id") Long id) {
         if (id == null) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
-        boolean savedBusiness = IBusinessService.deleteBusiness(id);
-        if (!savedBusiness) return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        boolean deleteBusiness = IBusinessService.deleteBusiness(id);
+        if (!deleteBusiness) return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
