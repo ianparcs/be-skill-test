@@ -56,7 +56,7 @@ public class BusinessController extends BaseController<Business> {
         business.setId(id);
 
         boolean savedBusiness = IBusinessService.saveBusiness(business);
-        if (savedBusiness) return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        if (!savedBusiness) return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 
         return new ResponseEntity<>(business, HttpStatus.OK);
     }
